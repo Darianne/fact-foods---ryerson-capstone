@@ -24,7 +24,6 @@ write.csv(predgrade,"C:/Roxana/ryerson/finalproject/factfoods/FoodFactsCorrClean
 
 library(corrplot)
 mycor=cor(relscore[,c("additives_n","energy_100g","fat_100g","saturated_fat_100g","sugars_100g","carbohydrates_100g","fiber_100g","proteins_100g","salt_100g","sodium_100g")],use="complete")
-
 corrplot(mycor,method="ellipse",tl.cex = .65)
 
 #PREDICT NUTRITION GRADE
@@ -100,6 +99,12 @@ predgrade$pnns_groups_1[predgrade$pnns_groups_1=='Fat and sauces']<-median(predg
 predgrade$pnns_groups_1[predgrade$pnns_groups_1=='Fish Meat Eggs']<-median(predgrade$nutrition_grade_fr[predgrade$pnns_groups_1=='Fish Meat Eggs'])
 predgrade$pnns_groups_1[predgrade$pnns_groups_1=='Milk and dairy products']<-median(predgrade$nutrition_grade_fr[predgrade$pnns_groups_1=='Milk and dairy products'])
 predgrade$pnns_groups_1<-as.numeric(predgrade$pnns_groups_1)
+
+
+#1 more ore
+mycor1=cor(predgrade[,c("pnns_groups_1","additives_n","energy_100g","fat_100g","saturated_fat_100g","sugars_100g","carbohydrates_100g","fiber_100g","proteins_100g","salt_100g","sodium_100g")],use="complete")
+corrplot(mycor1,method="ellipse",tl.cex = .60)
+
 
 
 
