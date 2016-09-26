@@ -13,7 +13,7 @@ library(nnet)
 #N1 Import data and fix levels of food categories, display food grades that is the output of classif/prediction rediction
 
 #import
-predgrade <- read.csv('C:/Roxana/ryerson/finalproject/factfoods/FoodFactsNutrition1.csv')
+predgrade <- read.csv('./factfoods/FoodFactsNutrition1.csv')
 
 #fix levels of food categories (Fish Meat Eggs appears twice)
 summary(predgrade$pnns_groups_1)
@@ -66,7 +66,7 @@ predgrade$pnns_groups_1<-as.numeric(predgrade$pnns_groups_1)
 
  
  #N4 write my data
- write.csv(predgrade,"C:/Roxana/ryerson/finalproject/factfoods/FoodFactsCorrCleanReplaced.csv")
+ write.csv(predgrade,"./factfoods/FoodFactsCorrCleanReplaced.csv")
  
 
 
@@ -192,7 +192,7 @@ accura1<-alltrue1/all #0.9215
 
 #PREDICT FOOD CATEGORY
 #C1 import
-predcat <- read.csv('C:/Roxana/ryerson/finalproject/factfoods/FoodFactsNutrition2.csv')
+predcat <- read.csv('./factfoods/FoodFactsNutrition2.csv')
 
 #C2 -fix levels in food categories - fish meat eggs appears twice
 summary(predcat$pnns_groups_1)
@@ -442,7 +442,7 @@ c
 #VISUALS
 
 #COUNTRIES AND FOOD CATEGORIES
-cntrycat<-read.csv('C:/Roxana/ryerson/finalproject/factfoods/FoodFactsCountriesCategoriesExpanded.csv')
+cntrycat<-read.csv('./factfoods/FoodFactsCountriesCategoriesExpanded.csv')
 
 #V1 - Number of entries per country
 count1 <- length(which(cntrycat$countriesgroups =='France'))
@@ -522,7 +522,7 @@ barplot(t10, main="Canada", beside=TRUE,
 
 
 #V3 Food Grades per Country
-cntrygrade<-read.csv('C:/Roxana/ryerson/finalproject/factfoods/FoodFactsCountriesGrade.csv')
+cntrygrade<-read.csv('./factfoods/FoodFactsCountriesGrade.csv')
 
 tt <- table(cntrygrade$nutrition_grade_fr,cntrygrade$countriesgroups)
 tt
